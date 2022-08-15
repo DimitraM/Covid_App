@@ -45,7 +45,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `covid_db`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`User` (
+CREATE TABLE IF NOT EXISTS `covid_db`.`User` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NULL,
@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `Pois_id` VARCHAR(255) NOT NULL,
   `Pois_Name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`, `username`),
-  INDEX `fk_User_Covid_case1_idx` (`Covid_case` ASC) VISIBLE,
-  INDEX `fk_User_Pois1_idx` (`Pois_id` ASC, `Pois_Name` ASC) VISIBLE,
+  INDEX `fk_User_Covid_case1_idx` (`Covid_case` ASC) ,
+  INDEX `fk_User_Pois1_idx` (`Pois_id` ASC, `Pois_Name` ASC) ,
   CONSTRAINT `fk_User_Covid_case1`
     FOREIGN KEY (`Covid_case`)
     REFERENCES `covid_db`.`Covid_case` (`idCoVid_case`)
@@ -90,8 +90,8 @@ CREATE TABLE IF NOT EXISTS `covid_db`.`Pois_has_Visit` (
   `Pois_idPois` VARCHAR(255) NOT NULL,
   `Pois_Name` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`Visit_id`, `Pois_idPois`, `Pois_Name`),
-  INDEX `fk_Pois_has_Visit_Visit1_idx` (`Visit_id` ASC) VISIBLE,
-  INDEX `fk_Pois_has_Visit_Pois_idx` (`Pois_idPois` ASC, `Pois_Name` ASC) VISIBLE,
+  INDEX `fk_Pois_has_Visit_Visit1_idx` (`Visit_id` ASC) ,
+  INDEX `fk_Pois_has_Visit_Pois_idx` (`Pois_idPois` ASC, `Pois_Name` ASC) ,
   CONSTRAINT `fk_Pois_has_Visit_Pois`
     FOREIGN KEY (`Pois_idPois` , `Pois_Name`)
     REFERENCES `covid_db`.`Pois` (`idPois` , `Name`)
@@ -112,8 +112,8 @@ CREATE TABLE IF NOT EXISTS `covid_db`.`Visit_has_Covid_case` (
   `Visit_id` INT NOT NULL,
   `Covid_case_id` INT NOT NULL,
   PRIMARY KEY (`Visit_id`, `Covid_case_id`),
-  INDEX `fk_Visit_has_Covid_case_Covid_case1_idx` (`Covid_case_id` ASC) VISIBLE,
-  INDEX `fk_Visit_has_Covid_case_Visit1_idx` (`Visit_id` ASC) VISIBLE,
+  INDEX `fk_Visit_has_Covid_case_Covid_case1_idx` (`Covid_case_id` ASC) ,
+  INDEX `fk_Visit_has_Covid_case_Visit1_idx` (`Visit_id` ASC) ,
   CONSTRAINT `fk_Visit_has_Covid_case_Visit1`
     FOREIGN KEY (`Visit_id`)
     REFERENCES `covid_db`.`Visit` (`idVisit`)
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `covid_db`.`Pop_Times` (
   `Sunday` VARCHAR(255) NULL,
   `Pois_id` VARCHAR(255) NOT NULL,
   `Pois_Name` VARCHAR(255) NOT NULL,
-  INDEX `fk_Pop_Times_Pois1_idx` (`Pois_id` ASC, `Pois_Name` ASC) VISIBLE,
+  INDEX `fk_Pop_Times_Pois1_idx` (`Pois_id` ASC, `Pois_Name` ASC) ,
   CONSTRAINT `fk_Pop_Times_Pois1`
     FOREIGN KEY (`Pois_id` , `Pois_Name`)
     REFERENCES `covid_db`.`Pois` (`idPois` , `Name`)
@@ -152,3 +152,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
