@@ -48,13 +48,13 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `covid_db`.`User` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NOT NULL,
-  `password` VARCHAR(255) NULL,
+  `password` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NULL,
   `created_at` TIMESTAMP NULL DEFAULT current_timestamp(),
   `is_admin` TINYINT NULL,
-  `Covid_case` INT NOT NULL,
-  `Pois_id` VARCHAR(255) NOT NULL,
-  `Pois_Name` VARCHAR(255) NOT NULL,
+  `Covid_case` INT NULL,
+  `Pois_id` VARCHAR(255) NULL,
+  `Pois_Name` VARCHAR(255) NULL,
   PRIMARY KEY (`id`, `username`),
   INDEX `fk_User_Covid_case1_idx` (`Covid_case` ASC) ,
   INDEX `fk_User_Pois1_idx` (`Pois_id` ASC, `Pois_Name` ASC) ,
@@ -83,7 +83,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Pois_has_Visit`
+-- Table `covid_db`.`Pois_has_Visit`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `covid_db`.`Pois_has_Visit` (
   `Visit_id` INT NOT NULL,
@@ -152,4 +152,3 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
