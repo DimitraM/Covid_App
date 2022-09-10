@@ -69,23 +69,45 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <!-- Form to Update our credentials -->
   <div id = "form_div">
-    <form>
+    <form method="post" action="php/user_update_credentials.php">
       <div class="form-group">
         <label for="formGroupExampleInput">Αλλαγή Ονόματος Χρήστη</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Όνομα">
+        <input type="text" class="form-control" name="update_username" placeholder="<?php echo $_SESSION['username'];?>" >
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInput2">Αλλαγή Κωδικού Χρήστη</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Κωδικός">
+        <label for="formGroupExampleInput2">Νέος Κωδικός Χρήστη</label>
+        <input type="password" class="form-control" name="update_new_password" placeholder="Νέος Κωδικός">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Επαλλήθευση Κωδικού</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Επαλλήθευση">
+        <input type="password" class="form-control" name="update_comf_new_password" placeholder="Επαλλήθευση">
       </div>
       <div class="form-group">
-          <input id="input" type="submit" class="btn btn-primary" value="Submit">
+          <input name="update_button" type="submit" class="btn btn-primary" value="Submit">
       </div>
     </form>
+<!-- Se periptwsh lathous epistrefontai sthn selida ta epomena errors -->
+    <?php
+    	if(isset($_GET['error'])){
+    		if($_GET['error'] == "wrongpassword"){
+    			echo '<div class="error-message"><p>Λάθος Κωδικός!<br> Το password πρέπει
+    			να είναι τουλάχιστον 8 χαρακτήρες και να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα, έναν αριθμό
+    			και κάποιο σύμβολο (π.χ. #$*&@).</div>';
+    		}
+    		else if($_GET['error'] == "passwordsdontmatch"){
+    			echo '<div class="error-message">Οι κωδικοί δεν είναι όμοιοι!</div>';
+    		}
+    		else if($_GET['error'] == "usernametaken"){
+    			echo '<div class="error-message">Υπάρχει ήδη χρήστης με αυτό το όνομα!</div>';
+    		}
+    	}
+    	if(isset($_GET['update'])){
+    		if($_GET['update'] == "success")
+    		{
+    			echo '<h2 style="text-align: center; color: green; font-weight: bold;">Οι αλλαγές έγιναν με επιτυχία!</h2>';
+    		}
+    }
+	?>
   </div>
 
 <!-- Footer -->
@@ -104,11 +126,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <script src ="bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Implement Leaflet  -->
-<script src="lib/leaflet/leaflet.js"></script>
+<!-- <script src="lib/leaflet/leaflet.js"></script> -->
 <!-- Jquery  -->
 <script src="lib/leaflet/jquery-3.5.1.js"></script>
 
-<script src="js/source_code.js"></script>
+<!-- <script src="js/source_code.js"></script> -->
 
 <!-- Control Locate-->
 <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
