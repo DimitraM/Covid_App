@@ -68,7 +68,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </nav>
 
 <!-- Form to Update our credentials -->
-  <div id = "form_div">
     <form method="post" action="php/user_update_credentials.php">
       <div class="form-group">
         <label for="formGroupExampleInput">Αλλαγή Ονόματος Χρήστη</label>
@@ -86,29 +85,31 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
           <input name="update_button" type="submit" class="btn btn-primary" value="Submit">
       </div>
     </form>
-<!-- Se periptwsh lathous epistrefontai sthn selida ta epomena errors -->
-    <?php
-    	if(isset($_GET['error'])){
-    		if($_GET['error'] == "wrongpassword"){
-    			echo '<div class="error-message"><p>Λάθος Κωδικός!<br> Το password πρέπει
-    			να είναι τουλάχιστον 8 χαρακτήρες και να περιέχει τουλάχιστον ένα κεφαλαίο γράμμα, έναν αριθμό
-    			και κάποιο σύμβολο (π.χ. #$*&@).</div>';
-    		}
-    		else if($_GET['error'] == "passwordsdontmatch"){
-    			echo '<div class="error-message">Οι κωδικοί δεν είναι όμοιοι!</div>';
-    		}
-    		else if($_GET['error'] == "usernametaken"){
-    			echo '<div class="error-message">Υπάρχει ήδη χρήστης με αυτό το όνομα!</div>';
-    		}
-    	}
-    	if(isset($_GET['update'])){
-    		if($_GET['update'] == "success")
-    		{
-    			echo '<h2 style="text-align: center; color: green; font-weight: bold;">Οι αλλαγές έγιναν με επιτυχία!</h2>';
-    		}
-    }
-	?>
-  </div>
+
+  <!-- Se periptwsh lathous epistrefontai sthn selida ta epomena errors -->
+      <?php
+      	if(isset($_GET['error'])){
+      		if($_GET['error'] == "wrongpassword"){
+      			echo '<div class="error" style ="margin-top: -44%;"><p>Λάθος Κωδικός!<br> Το password πρέπει
+      			να είναι τουλάχιστον 8 χαρακτήρες και να περιέχει τουλάχιστον<br> ένα κεφαλαίο γράμμα, έναν αριθμό
+      			και κάποιο σύμβολο (π.χ. #$*&@)</div>';
+      		}
+      		else if($_GET['error'] == "passwordsdontmatch"){
+      			echo '<div class="error">Οι κωδικοί δεν είναι όμοιοι!</div>';
+      		}
+      		else if($_GET['error'] == "usernametaken"){
+      			echo '<div class="error" style ="margin-top: -42%;">Υπάρχει ήδη χρήστης με αυτό το όνομα!</div>';
+      		}
+      	}
+      	if(isset($_GET['update'])){
+      		if($_GET['update'] == "success")
+      		{
+      			echo '<h2 style="text-align: center; color: #418385; font-weight: bold; margin-top: -43%;">Οι αλλαγές έγιναν με επιτυχία!</h2>';
+            // echo '<div class="alert alert-success" role="alert">Οι αλλαγές έγιναν με επιτυχία!</div>';
+
+      		}
+      }
+  	?>
 
 <!-- Footer -->
   <footer class="footer">
