@@ -57,12 +57,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
               </ul>
             </li>
           </ul>
-          <!-- <form class="d-flex"> -->
-          <!-- <div class="input-group">
-            <input id="search_input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button id="search_btn" class="btn btn-outline-success" type="submit">Search</button>
-          </div> -->
-          <!-- </form> -->
         </div>
       </div>
     </nav>
