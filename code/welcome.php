@@ -33,7 +33,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         body{
             margin: 0;
             padding: 0;
-            background-color: #d1e8e2;
+            background-color:  #9FC2BB;
+            /* #114F67; */
+            /* background-color: #d1e8e2; */
         }
 
         /* thelw na pianei olh thn othoni*/

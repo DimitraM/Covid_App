@@ -62,6 +62,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
+                            $_SESSION['password'] = $password;
+
 
                             // Redirect user to welcome page
                             echo "logged in successfully";
@@ -96,8 +98,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
+        body{
+          font: 14px sans-serif;
+          background-image: url('1663.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+        .wrapper{
+          width: 360px;
+          padding: 20px;
+          margin-top: 70px;
+          margin-left: 70%;
+          color:white;}
+
     </style>
 </head>
 <body>
