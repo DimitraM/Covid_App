@@ -40,8 +40,7 @@ checkbox.addEventListener('change', function() {
 
       $.get( "php/check_for_covid.php", function( data ) {
         var result = JSON.parse(data);
-        // result = JSON.stringify(result);
-        // if(result != false){ //an epistrefei timh tha dwsei true sthn if
+       
           result = new Date(result.Date);// ftiaxnoume to apotelesma se morfh date
           var todayDate = new Date(); //Today Date
           var diff_db= dateDiffInDays(result,todayDate); // pairnoume thn diafora tous
