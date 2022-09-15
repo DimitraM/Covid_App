@@ -39,9 +39,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
          display: flex !important;
          flex-direction: row-reverse !important;
          justify-content: space-between !important;
-         margin-right: 64%;
+         margin-right: 52%;
          margin-top:-33%;
-         margin-left: 18%;
+         margin-left: 30%;
 
        }
        .form-switch .form-check-input:checked{
@@ -49,9 +49,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
        }
       .date-input{
         width: 16%;
-        margin-left: 20%;
-        margin-top:8%;
+        margin-left: 32%;
+        margin-top:5%;
     /* margin:40%; */
+      }
+      .btn-dark{
+        background-color: white;
+        color: black;
+        margin-top: 3%;
+        margin-right: 20%;
       }
    </style>
 <body>
@@ -99,7 +105,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                 <input id="startDate" class="form-control" type="date" />
                 <span id="startDateSelected"></span>
     </div>
-    <!-- Footer -->
+    <button type="button" id="covid-button" class="btn btn-dark">Submit</button>
+
+     <!-- Footer -->
+
       <footer class="footer">
         <div class="container">
           <span class="text-muted">
